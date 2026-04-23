@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajesApp - Crear Cuenta</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="header-small">
+                <div class="logo-container-small">
+                    <svg class="plane-icon-small" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                    </svg>
+                    <div>
+                        <h1 class="title-small">ViajesApp</h1>
+                        <p class="subtitle-small">Tu viaje comienza aquí</p>
+                    </div>
+                </div>
+
+                <a href="index.html" class="btn-back">
+                    <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    Volver
+                </a>
+
+                <h2>Crear cuenta</h2>
+                <p class="description">
+                    Si ya eres parte de ViajesApp, no necesitas crear una cuenta nueva.
+                    <a href="index.html" class="link-blue">Inicia sesión</a> con tus datos de siempre.
+                </p>
+            </div>
+
+            <form class="form">
+                <div class="section">
+                    <h3>Datos personales</h3>
+                    <p class="help-text">
+                        Ingresa tus datos tal como aparecen en tu documento de identidad. 
+                        Los usaremos cuando compres tus pasajes.
+                    </p>
+
+                    <div class="form-group">
+                        <label>País</label>
+                        <select class="select">
+                            <option value="Perú">🇵🇪 Perú</option>
+                            <option value="Chile">🇨🇱 Chile</option>
+                            <option value="Argentina">🇦🇷 Argentina</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tipo de documento</label>
+                        <select class="select">
+                            <option value="DNI">DNI</option>
+                            <option value="Pasaporte">Pasaporte</option>
+                            <option value="Carnet">Carnet de Extranjería</option>
+                        </select>
+                        <p class="hint">Te recomendamos registrarte con tu DNI de Perú</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Número de DNI</label>
+                        <input type="text" class="input" placeholder="Ingresa un número de DNI"/>
+                        <p class="hint">Tal como aparece(n) en tu DNI. Ejemplo: 12345678</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nombre(s)</label>
+                        <input type="text" class="input" placeholder="Ingresa el o los nombres"/>
+                        <p class="hint">Tal como aparece en tu DNI</p>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" class="input" placeholder="Ingresa sólo apellido(s)"/>
+                    </div>
+                </div>
+
+                <div class="section border-top">
+                    <h3>Datos de ingreso a tu cuenta</h3>
+                    <p class="description">
+                        Prefiere tu email personal para asegurar que recibas nuestra comunicación.
+                    </p>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="input" placeholder="Ingresa tu email"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <div class="input-password">
+                            <input type="password" class="input" placeholder="Contraseña"/>
+                            <button type="button" class="toggle-password">
+                                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="password-requirements">
+                            <p class="help-text">Tu contraseña necesita tener mínimo:</p>
+                            <div class="requirement">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>1 mayúscula</span>
+                            </div>
+                            <div class="requirement">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>1 minúscula</span>
+                            </div>
+                            <div class="requirement">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>1 número</span>
+                            </div>
+                            <div class="requirement">
+                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                                <span>8 caracteres</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="button" class="btn-primary">
+                    Crear cuenta
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

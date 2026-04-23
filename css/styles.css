@@ -1,0 +1,477 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f3f4f6;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* Contenedor principal */
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.card {
+    background: white;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    padding: 2rem 3rem;
+    width: 100%;
+    max-width: 42rem;
+}
+
+/* Header principal */
+.header {
+    margin-bottom: 3rem;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.plane-icon {
+    width: 2rem;
+    height: 2rem;
+    color: #0d9488;
+}
+
+.logo-container h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+/* Header pequeño */
+.header-small {
+    margin-bottom: 2rem;
+}
+
+.logo-container-small {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.plane-icon-small {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: #0d9488;
+}
+
+.title-small {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.subtitle-small {
+    font-size: 0.75rem;
+    color: #6b7280;
+}
+
+/* Contenido */
+.content {
+    margin-bottom: 2rem;
+}
+
+.content h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.description {
+    color: #374151;
+    margin-bottom: 1.5rem;
+}
+
+.description-lg {
+    color: #374151;
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+/* Formularios */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+/* Inputs */
+.input {
+    height: 3.5rem;
+    padding: 0 1rem;
+    border: 2px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #0d9488;
+}
+
+/* Selects */
+.select {
+    height: 3.5rem;
+    padding: 0 1rem;
+    border: 2px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+}
+
+.select:focus {
+    outline: none;
+    border-color: #0d9488;
+}
+
+.select-large {
+    height: 3.5rem;
+    padding: 1rem;
+    border: 2px solid #d1d5db;
+    border-radius: 0.75rem;
+    font-size: 1rem;
+    background: white;
+    cursor: pointer;
+}
+
+/* Textos de ayuda */
+.hint {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.help-text {
+    font-size: 0.875rem;
+    color: #374151;
+}
+
+/* Input de contraseña */
+.input-password {
+    position: relative;
+}
+
+.input-password .input {
+    padding-right: 3rem;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.eye-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: #6b7280;
+}
+
+/* Requisitos de contraseña */
+.password-requirements {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.requirement {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.requirement .check-icon {
+    width: 1rem;
+    height: 1rem;
+    color: #9ca3af;
+}
+
+/* Botones */
+.btn-primary {
+    width: 100%;
+    height: 3.5rem;
+    font-size: 1.125rem;
+    background-color: #0d9488;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0f766e;
+}
+
+.btn-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.btn-disabled {
+    width: 100%;
+    height: 3.5rem;
+    font-size: 1.125rem;
+    background-color: #d1d5db;
+    color: #6b7280;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: not-allowed;
+    font-weight: 500;
+}
+
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #0d9488;
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    transition: color 0.2s;
+}
+
+.btn-back:hover {
+    color: #0f766e;
+}
+
+.arrow-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+/* Enlaces */
+.link-primary {
+    color: #0d9488;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.link-primary:hover {
+    color: #0f766e;
+}
+
+.link-blue {
+    color: #2563eb;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.link-blue:hover {
+    color: #1d4ed8;
+}
+
+/* Utilidades de texto */
+.text-center {
+    text-align: center;
+}
+
+.text-gray {
+    color: #374151;
+}
+
+/* Secciones */
+.section {
+    margin-bottom: 1.5rem;
+}
+
+.border-top {
+    border-top: 1px solid #e5e7eb;
+    padding-top: 1.5rem;
+}
+
+/* Contenedor de opciones */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.option-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 2px solid #d1d5db;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.option-card:hover {
+    border-color: #9ca3af;
+}
+
+.option-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.email-icon {
+    background-color: #ccfbf1;
+}
+
+.phone-icon {
+    background-color: #ccfbf1;
+}
+
+.option-icon svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: #0d9488;
+}
+
+.option-content {
+    flex: 1;
+}
+
+.option-content h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.25rem;
+}
+
+.option-content p {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.chevron-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: #9ca3af;
+    flex-shrink: 0;
+}
+
+/* Página de email enviado */
+.top-text {
+    color: #374151;
+    margin-bottom: 2rem;
+}
+
+.content-center {
+    text-align: center;
+}
+
+.email-icon-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.email-icon-bg {
+    width: 8rem;
+    height: 8rem;
+    background-color: #f0fdfa;
+    border-radius: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.email-icon-large {
+    width: 4rem;
+    height: 4rem;
+    color: #0d9488;
+}
+
+.check-badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    width: 3rem;
+    height: 3rem;
+    background-color: #0d9488;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-badge svg {
+    width: 1.75rem;
+    height: 1.75rem;
+    color: white;
+}
+
+.title-center {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .card {
+        padding: 1.5rem 2rem;
+    }
+
+    .content h2, h2 {
+        font-size: 1.875rem;
+    }
+
+    .title-center {
+        font-size: 1.875rem;
+    }
+}
