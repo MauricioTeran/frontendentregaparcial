@@ -37,14 +37,10 @@
             <form class="form">
                 <div class="section">
                     <h3>Datos personales</h3>
-                    <p class="help-text">
-                        Ingresa tus datos tal como aparecen en tu documento de identidad. 
-                        Los usaremos cuando compres tus pasajes.
-                    </p>
 
                     <div class="form-group">
                         <label>País</label>
-                        <select class="select">
+                        <select id="pais" class="select">
                             <option value="Perú">🇵🇪 Perú</option>
                             <option value="Chile">🇨🇱 Chile</option>
                             <option value="Argentina">🇦🇷 Argentina</option>
@@ -53,90 +49,82 @@
 
                     <div class="form-group">
                         <label>Tipo de documento</label>
-                        <select class="select">
+                        <select id="tipoDocumento" class="select">
                             <option value="DNI">DNI</option>
                             <option value="Pasaporte">Pasaporte</option>
                             <option value="Carnet">Carnet de Extranjería</option>
                         </select>
-                        <p class="hint">Te recomendamos registrarte con tu DNI de Perú</p>
                     </div>
 
                     <div class="form-group">
-                        <label>Número de DNI</label>
-                        <input type="text" class="input" placeholder="Ingresa un número de DNI"/>
-                        <p class="hint">Tal como aparece(n) en tu DNI. Ejemplo: 12345678</p>
+                        <label>Número de documento</label>
+                        <input id="numeroDocumento" type="text" class="input" placeholder="Ingresa tu documento"/>
                     </div>
 
                     <div class="form-group">
                         <label>Nombre(s)</label>
-                        <input type="text" class="input" placeholder="Ingresa el o los nombres"/>
-                        <p class="hint">Tal como aparece en tu DNI</p>
+                        <input id="nombres" type="text" class="input" placeholder="Ingresa tus nombres"/>
                     </div>
 
                     <div class="form-group">
                         <label>Apellidos</label>
-                        <input type="text" class="input" placeholder="Ingresa sólo apellido(s)"/>
+                        <input id="apellidos" type="text" class="input" placeholder="Ingresa tus apellidos"/>
                     </div>
                 </div>
 
                 <div class="section border-top">
-                    <h3>Datos de ingreso a tu cuenta</h3>
-                    <p class="description">
-                        Prefiere tu email personal para asegurar que recibas nuestra comunicación.
-                    </p>
+                    <h3>Datos de ingreso</h3>
 
                     <div class="form-group">
                         <label>Email</label>
-                        <input type="email" class="input" placeholder="Ingresa tu email"/>
+                        <input id="email" type="email" class="input" placeholder="Ingresa tu email"/>
                     </div>
 
                     <div class="form-group">
                         <label>Contraseña</label>
-                        <div class="input-password">
-                            <input type="password" class="input" placeholder="Contraseña"/>
-                            <button type="button" class="toggle-password">
-                                <svg class="eye-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                                    <circle cx="12" cy="12" r="3"/>
-                                </svg>
-                            </button>
-                        </div>
-
-                        <div class="password-requirements">
-                            <p class="help-text">Tu contraseña necesita tener mínimo:</p>
-                            <div class="requirement">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>1 mayúscula</span>
-                            </div>
-                            <div class="requirement">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>1 minúscula</span>
-                            </div>
-                            <div class="requirement">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>1 número</span>
-                            </div>
-                            <div class="requirement">
-                                <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <polyline points="20 6 9 17 4 12"/>
-                                </svg>
-                                <span>8 caracteres</span>
-                            </div>
-                        </div>
+                        <input id="password" type="password" class="input" placeholder="Contraseña"/>
                     </div>
                 </div>
 
-                <button type="button" class="btn-primary">
+                <button type="button" class="btn-primary" onclick="crearUsuario()">
                     Crear cuenta
                 </button>
             </form>
         </div>
     </div>
+
+    <script>
+        function crearUsuario() {
+            const usuario = {
+                pais: document.getElementById("pais").value,
+                tipoDocumento: document.getElementById("tipoDocumento").value,
+                numeroDocumento: document.getElementById("numeroDocumento").value,
+                nombres: document.getElementById("nombres").value,
+                apellidos: document.getElementById("apellidos").value,
+                email: document.getElementById("email").value,
+                password: document.getElementById("password").value
+            };
+
+            fetch("http://localhost:8080/usuarios", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(usuario)
+            })
+            .then(res => res.json())
+            .then(data => {
+                alert("Usuario creado con éxito");
+                console.log(data);
+
+                window.location.href = "index.html";
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                alert("Error al crear usuario");
+            });
+        }
+    </script>
+
 </body>
 </html>

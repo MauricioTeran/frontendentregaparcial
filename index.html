@@ -25,14 +25,24 @@
                 <h2>Ingresa tu usuario</h2>
                 <p class="description">Si ya eres parte de ViajesApp, ingresa tus datos:</p>
 
-                <form class="form">
+                <form class="form" onsubmit="event.preventDefault(); login();">
+                    
                     <input 
+                        id="usuario"
                         type="text" 
                         class="input" 
                         placeholder="Email o Número de socio"
+                        required
                     />
 
-                    <button type="button" class="btn-primary">
+                    <input 
+                        id="password"
+                        type="password" 
+                        class="input" 
+                        placeholder="Contraseña"
+                    />
+
+                    <button type="submit" class="btn-primary">
                         Continuar
                     </button>
 
@@ -48,5 +58,44 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function login() {
+            const usuario = document.getElementById("usuario").value;
+            const password = document.getElementById("password").value;
+
+            const body = password 
+                ? { usuario, password } 
+                : { usuario };
+
+            fetch("http://localhost:8080/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("Credenciales incorrectas");
+                }
+                return res.json();
+            })
+            .then(data => {
+                console.log("Login OK:", data);
+
+                localStorage.setItem("usuario", JSON.stringify(data));
+
+                alert("Login exitoso");
+
+                window.location.href = "home.html"; 
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Usuario o contraseña incorrectos");
+            });
+        }
+    </script>
+
 </body>
 </html>
