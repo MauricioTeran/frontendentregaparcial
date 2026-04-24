@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajesApp - Email Enviado</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <p class="top-text">
+                ¿No puedes ingresar a tu cuenta? 
+                <a href="recuperar-acceso.html" class="link-blue">Recupera el acceso</a>
+            </p>
+
+            <div class="content-center">
+                <div class="email-icon-container">
+                    <div class="email-icon-bg">
+                        <svg class="email-icon-large" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="2" y="4" width="20" height="16" rx="2"/>
+                            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                        </svg>
+                    </div>
+
+                    <div class="check-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                            <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <h2 class="title-center">Revisa tu email</h2>
+
+                <p class="description-lg" id="email-sent-text">
+                    Te enviamos el enlace a m****@*****.com para que puedas crear tu nueva contraseña.
+                </p>
+
+                <p class="text-gray">Revisa tu bandeja de entrada o spam.</p>
+
+                <button type="button" class="btn-disabled">
+                    Reenviar enlace en 4:58
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/email-enviado.js"></script>
+</body>
+</html>

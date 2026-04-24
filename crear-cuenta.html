@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajesApp - Crear Cuenta</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="card">
+
+        <a href="index.html" class="btn-back">← Volver</a>
+
+        <div class="content">
+            <h2>Crear cuenta</h2>
+
+            <form class="form" onsubmit="event.preventDefault(); crearUsuario();">
+
+                <!-- País -->
+                <select id="pais" class="input">
+                    <option value="Perú">Perú</option>
+                </select>
+
+                <!-- Tipo documento -->
+                <select id="tipoDocumento" class="input">
+                    <option value="DNI">DNI</option>
+                    <option value="Pasaporte">Pasaporte</option>
+                </select>
+
+                <!-- DNI -->
+                <input id="numeroDocumento" type="text" class="input" placeholder="Número de documento" required>
+
+                <!-- Nombres -->
+                <input id="nombres" type="text" class="input" placeholder="Nombres" required>
+
+                <!-- Apellidos -->
+                <input id="apellidos" type="text" class="input" placeholder="Apellidos" required>
+
+                <!-- Email -->
+                <input id="email" type="email" class="input" placeholder="Email" required>
+
+                <!-- Password -->
+                <input id="password" type="password" class="input" placeholder="Contraseña" required>
+
+                <button type="submit" class="btn-primary">
+                    Crear cuenta
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script>
+function crearUsuario() {
+    const usuario = {
+        pais: document.getElementById("pais").value,
+        tipoDocumento: document.getElementById("tipoDocumento").value,
+        numeroDocumento: document.getElementById("numeroDocumento").value,
+        nombres: document.getElementById("nombres").value,
+        apellidos: document.getElementById("apellidos").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value
+    };
+
+    console.log("Usuario:", usuario);
+
+    // ============================
+    // 🟢 MODO SIN BACKEND (ACTIVO)
+    // ============================
+
+    localStorage.setItem("usuario", JSON.stringify(usuario));
+
+    alert("Usuario creado con éxito (modo local)");
+
+    window.location.href = "index.html";
+    
+
+
+    // ============================
+    // 🔵 MODO CON BACKEND (FUTURO)
+    // ============================
+    /*
+    fetch("http://localhost:8080/usuarios", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(usuario)
+    })
+    .then(async res => {
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+            throw new Error(data.message || "Error en el servidor");
+        }
+
+        return data;
+    })
+    .then(data => {
+        alert("Usuario creado con éxito");
+        console.log(data);
+        window.location.href = "index.html";
+    })
+    .catch(error => {
+        console.error(error);
+        alert("Error: " + error.message);
+    });
+    */
+    
+}
+</script>
+
+</body>
+</html>

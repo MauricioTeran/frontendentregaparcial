@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajesApp - Recuperar Acceso</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <a href="index.html" class="btn-back">
+                <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                Volver
+            </a>
+
+            <div class="content">
+                <h2>Recupera el acceso a tu cuenta</h2>
+                <p class="description-lg">Selecciona qué dato de identificación quieres usar:</p>
+
+                <form class="form">
+                    <div class="form-group">
+                        <!-- ✅ ID agregado -->
+                        <select class="select-large" id="tipo-identificacion">
+                            <option value="" disabled>Dato de identificación</option>
+                            <option value="email" selected>Email de registro</option>
+                            <option value="telefono">Número de teléfono</option>
+                        </select>
+                    </div>
+
+                    <!-- ✅ ID agregado -->
+                    <input 
+                        type="email" 
+                        class="input" 
+                        id="input-identificacion"
+                        placeholder="Ingresa un email"
+                    />
+
+                    <button type="button" class="btn-primary">
+                        Continuar
+                    </button>
+
+                    <div class="text-center">
+                        <span class="text-gray">¿Aún no te registras?</span>
+                        <a href="crear-cuenta.html" class="link-blue">Crea una cuenta</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ JS directo (sin archivo aparte) -->
+    <script>
+        const select = document.getElementById("tipo-identificacion");
+        const input = document.getElementById("input-identificacion");
+
+        select.addEventListener("change", () => {
+            if (select.value === "telefono") {
+                input.type = "tel";
+                input.placeholder = "Ingresa tu número de teléfono";
+            } else {
+                input.type = "email";
+                input.placeholder = "Ingresa un email";
+            }
+        });
+    </script>
+</body>
+</html>
