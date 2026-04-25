@@ -59,43 +59,20 @@
 
     <script>
         function login() {
-            const usuario = document.getElementById("usuario").value;
-            const password = document.getElementById("password").value;
+            const email = document.getElementById("usuario").value.trim();
+            const password = document.getElementById("password").value.trim();
 
-            console.log("Login intento:", usuario);
+            console.log("Login intento:", email);
 
-            // ============================
-            // 🟢 MODO SIN BACKEND (ACTIVO)
-            // ============================
-
-            const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-
-            if (!usuarioGuardado) {
-                alert("No existe usuario registrado");
-                return;
-            }
-
-            if (
-                usuarioGuardado.email === usuario &&
-                usuarioGuardado.password === password
-            ) {
-                alert("Login exitoso (modo local)");
-                window.location.href = "home.html";
-            } else {
-                alert("Credenciales incorrectas");
-            }
-
-
-            // ============================
-            // 🔵 MODO CON BACKEND (FUTURO)
-            // ============================
-            /*
-            fetch("http://localhost:8080/login", {
+            fetch("http://localhost:8080/auth/login", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({ usuario, password })
+                body: JSON.stringify({
+                    email: email,
+                    password: password
+                })
             })
             .then(async res => {
                 const data = await res.json().catch(() => ({}));
@@ -109,18 +86,23 @@
             .then(data => {
                 console.log("Login OK:", data);
 
+                
                 localStorage.setItem("session", JSON.stringify(data));
+                localStorage.setItem("token", data.token);
+                localStorage.setItem("usuario", JSON.stringify(data.usuario));
 
                 alert("Login exitoso");
 
                 window.location.href = "home.html";
             })
+            
             .catch(error => {
                 console.error(error);
                 alert("Error: " + error.message);
             });
-            */
         }
+           
+     
     </script>
 
 </body>
