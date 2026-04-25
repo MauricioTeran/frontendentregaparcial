@@ -21,17 +21,15 @@ function crearUsuario() {
     // 🟢 MODO SIN BACKEND (ACTIVO) cuando haya backend solo comentar esto
     // ============================
 
-    localStorage.setItem("usuario", JSON.stringify(usuario));
+    // localStorage.setItem("usuario", JSON.stringify(usuario));
 
-    alert("Usuario creado con éxito (modo local)");
+    // alert("Usuario creado con éxito (modo local)");
 
-    window.location.href = "index.html";
+    // window.location.href = "index.html";
 
 
-    // ============================
-    // 🔵 MODO CON BACKEND (FUTURO) descomentar esto y comentar lo de arriba, lo de arriba es solo para que el frontend pueda correr sin necesidad de una bd
-    // ============================
-    /*
+    
+    
     fetch("http://localhost:8080/usuarios", {
         method: "POST",
         headers: {

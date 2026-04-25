@@ -475,8 +475,8 @@
             <div class="nav-right">
                 <a href="#" class="nav-link">Estado de vuelo</a>
                 <div class="user-profile">
-                    <div class="user-avatar">M</div>
-                    <span>Miguel</span>
+                    <div class="user-avatar" id="userAvatar">?</div>
+                    <span id="userNombre">Usuario</span>
                     <svg class="chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="m6 9 6 6 6-6"/>
                     </svg>
@@ -730,5 +730,24 @@
             }
         }
     </script>
+
+    <script>
+        const session = JSON.parse(localStorage.getItem("session"));
+
+        if (session && session.usuario && session.usuario.nombres) {
+            const nombre = session.usuario.nombres;
+
+            document.getElementById("userNombre").textContent = nombre;
+            document.getElementById("userAvatar").textContent =
+                nombre.charAt(0).toUpperCase();
+
+        } else {
+            console.warn("Sesión inválida:", session);
+            localStorage.removeItem("session");
+            window.location.href = "index.html";
+        }
+    </script>
+
+
 </body>
 </html>

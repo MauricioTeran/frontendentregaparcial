@@ -7,7 +7,7 @@ function login() {
     // ============================
     // 🟢 MODO SIN BACKEND (ACTIVO)
     // ============================
-
+    /*
     const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
 
     if (!usuarioGuardado) {
@@ -24,11 +24,11 @@ function login() {
     } else {
         alert("Credenciales incorrectas");
     }
-
+    */
     // ============================
     // 🔵 MODO CON BACKEND (FUTURO)
     // ============================
-    /*
+    
     fetch("http://localhost:8080/login", {
         method: "POST",
         headers: {
@@ -61,5 +61,5 @@ function login() {
         console.error(error);
         alert("Error: " + error.message);
     });
-    */
+    
 }
