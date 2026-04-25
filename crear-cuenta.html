@@ -68,19 +68,6 @@ function crearUsuario() {
 
     console.log("Usuario:", usuario);
 
-    // ============================
-    // 🟢 MODO SIN BACKEND (ACTIVO)
-    // ============================
-    /*
-    localStorage.setItem("usuario", JSON.stringify(usuario));
-
-    alert("Usuario creado con éxito (modo local)");
-
-    window.location.href = "index.html";
-
-    */
-
-
     
     fetch("http://localhost:8080/usuarios", {
         method: "POST",
