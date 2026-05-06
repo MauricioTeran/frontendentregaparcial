@@ -1,65 +1,52 @@
 function login() {
-    const usuarioInput = document.getElementById("usuario").value;
-    const passwordInput = document.getElementById("password").value;
+    const email = document.getElementById("usuario").value.trim();
+    const password = document.getElementById("password").value.trim();
 
-    console.log("Intento de login:", usuarioInput);
-
-    // ============================
-    // 🟢 MODO SIN BACKEND (ACTIVO)
-    // ============================
-    /*
-    const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-
-    if (!usuarioGuardado) {
-        alert("No existe usuario registrado");
+    if (!email || !password) {
+        alert("Por favor, ingresa tu usuario y contraseña.");
         return;
     }
 
-    if (
-        usuarioGuardado.email === usuarioInput &&
-        usuarioGuardado.password === passwordInput
-    ) {
-        alert("Login exitoso (modo local)");
-        window.location.href = "home.html";
-    } else {
-        alert("Credenciales incorrectas");
-    }
-    */
-    // ============================
-    // 🔵 MODO CON BACKEND (FUTURO)
-    // ============================
-    
-    fetch("http://localhost:8080/login", {
+    console.log("Intentando iniciar sesión con:", email);
+
+    fetch("https://7i866xq21k.execute-api.us-east-1.amazonaws.com/auth/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            usuario: usuarioInput,
-            password: passwordInput
+            email: email,
+            password: password
         })
     })
     .then(async res => {
         const data = await res.json().catch(() => ({}));
 
         if (!res.ok) {
-            throw new Error(data.message || "Error en login");
+            throw new Error(data.message || "Usuario o contraseña incorrectos");
         }
 
         return data;
     })
     .then(data => {
-        alert("Login exitoso");
-        console.log(data);
+        console.log("Login OK:", data);
 
-        // Guardar sesión
         localStorage.setItem("session", JSON.stringify(data));
+        
+        if (data.token) {
+            localStorage.setItem("token", data.token);
+        }
+        
+        if (data.usuario) {
+            localStorage.setItem("usuario", JSON.stringify(data.usuario));
+        } else {
+            localStorage.setItem("usuario", JSON.stringify(data));
+        }
 
         window.location.href = "home.html";
     })
     .catch(error => {
-        console.error(error);
-        alert("Error: " + error.message);
+        console.error("Error en petición:", error);
+        alert("Error al iniciar sesión: " + error.message);
     });
-    
 }

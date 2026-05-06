@@ -22,7 +22,6 @@
 
                 <form class="form">
                     <div class="form-group">
-                        <!-- ✅ ID agregado -->
                         <select class="select-large" id="tipo-identificacion">
                             <option value="" disabled>Dato de identificación</option>
                             <option value="email" selected>Email de registro</option>
@@ -30,15 +29,15 @@
                         </select>
                     </div>
 
-                    <!-- ✅ ID agregado -->
                     <input 
                         type="email" 
                         class="input" 
                         id="input-identificacion"
                         placeholder="Ingresa un email"
+                        required
                     />
 
-                    <button type="button" class="btn-primary">
+                    <button type="button" id="btn-continuar" class="btn-primary">
                         Continuar
                     </button>
 
@@ -51,20 +50,6 @@
         </div>
     </div>
 
-    <!-- ✅ JS directo (sin archivo aparte) -->
-    <script>
-        const select = document.getElementById("tipo-identificacion");
-        const input = document.getElementById("input-identificacion");
-
-        select.addEventListener("change", () => {
-            if (select.value === "telefono") {
-                input.type = "tel";
-                input.placeholder = "Ingresa tu número de teléfono";
-            } else {
-                input.type = "email";
-                input.placeholder = "Ingresa un email";
-            }
-        });
-    </script>
+    <script src="js/recuperar-acceso.js"></script>
 </body>
 </html>

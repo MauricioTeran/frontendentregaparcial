@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajesApp - Mi Wishlist</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .flight-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem 2rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .flight-times { display: flex; align-items: center; gap: 2rem; }
+        .time-block { text-align: center; }
+        .time-block h3 { font-size: 1.5rem; margin-bottom: 0; color: #1f2937; }
+        .flight-duration {
+            text-align: center; color: #6b7280; font-size: 0.875rem; position: relative; padding: 0 1rem;
+        }
+        .flight-duration::before {
+            content: ''; position: absolute; top: 50%; left: -10px; right: -10px; height: 2px; background: #d1d5db; z-index: 0;
+        }
+        .flight-duration span { background: white; padding: 0 0.5rem; position: relative; z-index: 1; }
+        .no-results { text-align: center; padding: 4rem 2rem; background: white; border-radius: 1rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="logo">
+                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
+                    </svg>
+                    <span>ViajesApp</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="home.html" class="nav-link">Descubre</a>
+                    <a href="wishlist.html" class="nav-link">Mis viajes / Wishlist</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <div class="user-profile">
+                    <div class="user-avatar" id="userAvatar">?</div>
+                    <span id="userNombre">Usuario</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="search-container">
+            <h2 style="color: white; margin-bottom: 2rem;">Tus vuelos guardados</h2>
+            <div id="wishlist-container">
+            </div>
+        </div>
+    </main>
+
+    <script src="js/wishlist.js"></script>
+</body>
+</html>

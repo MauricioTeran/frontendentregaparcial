@@ -9,28 +9,14 @@ function crearUsuario() {
         password: document.getElementById("password").value
     };
 
-    // 🔒 Validación básica
     if (!usuario.email || !usuario.password) {
         alert("Completa todos los campos");
         return;
     }
 
-    console.log("Datos enviados:", usuario);
+    console.log("Datos enviados al API Gateway:", usuario);
 
-    // ============================
-    // 🟢 MODO SIN BACKEND (ACTIVO) cuando haya backend solo comentar esto
-    // ============================
-
-    // localStorage.setItem("usuario", JSON.stringify(usuario));
-
-    // alert("Usuario creado con éxito (modo local)");
-
-    // window.location.href = "index.html";
-
-
-    
-    
-    fetch("http://localhost:8080/usuarios", {
+    fetch("https://7i866xq21k.execute-api.us-east-1.amazonaws.com/usuarios", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -47,13 +33,12 @@ function crearUsuario() {
         return data;
     })
     .then(data => {
-        alert("Usuario creado con éxito");
-        console.log(data);
+        alert("Usuario creado con éxito en la base de datos");
+        console.log("Respuesta del servidor:", data);
         window.location.href = "index.html";
     })
     .catch(error => {
-        console.error("Error:", error);
+        console.error("Error en la petición:", error);
         alert("Error: " + error.message);
     });
-    */
 }

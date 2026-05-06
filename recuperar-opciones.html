@@ -15,7 +15,7 @@
                 <p class="description-lg">Elige una opción para restablecer tu contraseña.</p>
 
                 <div class="options-container">
-                    <div class="option-card">
+                    <div class="option-card" id="card-email" style="cursor: pointer; transition: all 0.2s;">
                         <div class="option-icon email-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -36,7 +36,7 @@
                         </svg>
                     </div>
 
-                    <div class="option-card">
+                    <div class="option-card" id="card-phone" style="cursor: pointer; transition: all 0.2s;">
                         <div class="option-icon phone-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
@@ -57,9 +57,9 @@
                     </div>
                 </div>
 
-                <a href="email-enviado.html" class="btn-primary btn-link">
+                <button type="button" id="btn-continuar" class="btn-primary" disabled style="opacity: 0.5; cursor: not-allowed;">
                     Continuar
-                </a>
+                </button>
 
                 <p class="text-center help-text">
                     ¿No tienes acceso a este email o teléfono? 
